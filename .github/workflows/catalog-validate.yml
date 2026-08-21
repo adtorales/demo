@@ -21,6 +21,8 @@ jobs:
           distribution: temurin
           java-version: "17"
       - uses: gradle/actions/setup-gradle@v4
+      - name: Make Gradle wrapper executable
+        run: chmod +x ./gradlew
       - name: Validate xRegistry envelopes and policy content
         run: ./gradlew validateXRegistry
       - name: Run semantic policy checks
