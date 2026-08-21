@@ -1,0 +1,12 @@
+dependencies:
+- name: tractusx-connector
+  repository: https://eclipse-tractusx.github.io/charts/dev
+  version: 0.13.0-SNAPSHOT
+- name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 15.2.1
+- name: vault
+  repository: https://helm.releases.hashicorp.com
+  version: 0.27.0
+digest: sha256:1b3c0b2d4971e4954d2c163c3ac095d1ec31145153894c51557d2cb7b626f13f
+generated: "2026-07-30T15:23:22.7329445-03:00"

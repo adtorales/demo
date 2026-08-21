@@ -1,0 +1,26 @@
+{
+    "value":  [
+                  {
+                      "@id":  "tap74-contract-definition-001",
+                      "@type":  "ContractDefinition",
+                      "accessPolicyId":  "cx/membership-access/1.0",
+                      "contractPolicyId":  "cx/usage-framework/1.0",
+                      "assetsSelector":  {
+                                             "@type":  "Criterion",
+                                             "operandLeft":  "https://w3id.org/edc/v0.0.1/ns/id",
+                                             "operator":  "=",
+                                             "operandRight":  "tap74-asset-001"
+                                         },
+                      "@context":  [
+                                       "https://w3id.org/catenax/2025/9/policy/context.jsonld",
+                                       {
+                                           "tx-auth":  "https://w3id.org/tractusx/auth/",
+                                           "@vocab":  "https://w3id.org/edc/v0.0.1/ns/",
+                                           "edc":  "https://w3id.org/edc/v0.0.1/ns/",
+                                           "odrl":  "http://www.w3.org/ns/odrl/2/"
+                                       }
+                                   ]
+                  }
+              ],
+    "Count":  1
+}

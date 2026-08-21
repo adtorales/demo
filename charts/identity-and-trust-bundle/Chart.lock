@@ -1,0 +1,6 @@
+dependencies:
+- name: ssi-dim-wallet-stub
+  repository: https://eclipse-tractusx.github.io/charts/dev
+  version: 0.1.17
+digest: sha256:9fd060a3346475b198932cfb53c96ce425d90f53a4a2f35454c0ccf0ea2fa031
+generated: "2026-07-30T15:27:04.4573059-03:00"

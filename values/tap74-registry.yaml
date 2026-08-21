@@ -1,0 +1,20 @@
+image:
+  repository: ghcr.io/adtorales/tap74-registry
+  tag: latest
+  pullPolicy: IfNotPresent
+
+registry:
+  url: http://tap74-registry:8181/api/registry
+  oci:
+    images: ghcr.io/adtorales/xregistry-policies:current,ghcr.io/adtorales/xregistry-dataspace-schemas:current
+    pollSeconds: 60
+    insecure: false
+  existingSecret: ""
+
+probes:
+  liveness:
+    # The Registry exposes its public API below /api; querying it also verifies
+    # that the OCI catalog was loaded and avoids a false 404/restart loop.
+    path: /api/registry
+  readiness:
+    path: /api/registry

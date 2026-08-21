@@ -1,0 +1,208 @@
+﻿# #############################################################################
+# Copyright (c) 2026 Contributors to the Eclipse Foundation
+#
+# This file defines the TAP 7.4 Pure Reconcile demonstrator overlay on top of
+# values-adopter-data-exchange.yaml.
+#
+# SPDX-License-Identifier: Apache-2.0
+# #############################################################################
+---
+# Keep the same identity setup used by the adopter data exchange scenario.
+centralidp:
+  enabled: false
+bdrs-server-memory:
+  enabled: true
+ssi-credential-issuer:
+  enabled: false
+identity-and-trust-bundle:
+  enabled: true
+  ssi-dim-wallet-stub:
+    wallet:
+      seeding:
+        # Pre-seed all three participant BPNs (provider + two consumers, S2 starts disabled)
+        bpnList: "BPNL00000003AZQP,BPNL00000003AYRE,BPNL00000003AVTH"
+pgadmin4:
+  enabled: false
+
+tap74Registry:
+  enabled: true
+  image:
+    repository: ghcr.io/adtorales/fleet-registry-server
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    port: 8181
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+  oci:
+    # Both the policy catalog and the dataspace schema catalog are re-pulled and merged.
+    images: "ghcr.io/adtorales/xregistry-policies:current,ghcr.io/adtorales/xregistry-dataspace-schemas:current"
+    pollSeconds: 60
+    insecure: false
+  credentials:
+    existingSecret: tap74-registry-oci-creds
+    usernameKey: username
+    passwordKey: password
+
+dataconsumerOne:
+  enabled: true
+  dataspace-connector-bundle:
+    tractusx-connector:
+      participant:
+        id: did:web:ssi-dim-wallet-stub.tx.test:BPNL00000003AZQP
+        bpnl: BPNL00000003AZQP
+        contextId: "00000000-0000-0000-0000-000000000001"
+      dcp:
+        trustedIssuers:
+          - did:web:ssi-dim-wallet-stub.tx.test:BPNL00000003CRHK
+        sts:
+          div:
+            url: http://ssi-dim-wallet-service:8080/api/sts
+          oauth:
+            token_url: http://ssi-dim-wallet-service:8080/oauth/token
+            client:
+              id: BPNL00000003AZQP
+              secret_alias: edc-wallet-secret
+        cache:
+          enabled: true
+          validity: 86400
+      iatp:
+        sts:
+          dim:
+            url: http://ssi-dim-wallet-service:8080/api/sts
+          oauth:
+            token_url: http://ssi-dim-wallet-service:8080/oauth/token
+            client:
+              id: BPNL00000003AZQP
+              secret_alias: edc-wallet-secret
+      controlplane:
+        image:
+          repository: ghcr.io/adtorales/edc-demo
+          tag: latest
+          pullPolicy: IfNotPresent
+        env:
+          EDC_REGISTRY: http://tap74-registry:8181/registry
+          EDC_RECONCILER_INTERVAL_SECONDS: "30"
+          EDC_RECONCILER_INITIAL_DELAY_SECONDS: "10"
+          TX_EDC_IAM_IATP_CREDENTIALSERVICE_URL: http://ssi-dim-wallet-service:8080/api
+          TX_EDC_IAM_DCP_CREDENTIALSERVICE_URL: http://ssi-dim-wallet-service:8080/api
+        bdrs:
+          server:
+            url: http://bdrs-server:8082/api/directory
+      dataplane:
+        env:
+          TX_EDC_IAM_IATP_CREDENTIALSERVICE_URL: http://ssi-dim-wallet-service:8080/api
+          TX_EDC_IAM_DCP_CREDENTIALSERVICE_URL: http://ssi-dim-wallet-service:8080/api
+
+tx-data-provider:
+  enabled: true
+  # Umbrella's own MAPI seeding is disabled; the demonstrator seeds assets via its own script.
+  seedTestdata: false
+  digital-twin-bundle:
+    enabled: false
+  data-persistence-layer-bundle:
+    enabled: false
+  dataspace-connector-bundle:
+    tractusx-connector:
+      participant:
+        id: did:web:ssi-dim-wallet-stub.tx.test:BPNL00000003AYRE
+        bpnl: BPNL00000003AYRE
+        contextId: "00000000-0000-0000-0000-000000000002"
+      dcp:
+        trustedIssuers:
+          - did:web:ssi-dim-wallet-stub.tx.test:BPNL00000003CRHK
+        sts:
+          div:
+            url: http://ssi-dim-wallet-service:8080/api/sts
+          oauth:
+            token_url: http://ssi-dim-wallet-service:8080/oauth/token
+            client:
+              id: BPNL00000003AYRE
+              secret_alias: edc-wallet-secret
+        cache:
+          enabled: true
+          validity: 86400
+      iatp:
+        sts:
+          dim:
+            url: http://ssi-dim-wallet-service:8080/api/sts
+          oauth:
+            token_url: http://ssi-dim-wallet-service:8080/oauth/token
+            client:
+              id: BPNL00000003AYRE
+              secret_alias: edc-wallet-secret
+      controlplane:
+        image:
+          repository: ghcr.io/adtorales/edc-demo
+          tag: latest
+          pullPolicy: IfNotPresent
+        env:
+          EDC_REGISTRY: http://tap74-registry:8181/registry
+          EDC_RECONCILER_INTERVAL_SECONDS: "30"
+          EDC_RECONCILER_INITIAL_DELAY_SECONDS: "10"
+          TX_EDC_IAM_IATP_CREDENTIALSERVICE_URL: http://ssi-dim-wallet-service:8080/api
+          TX_EDC_IAM_DCP_CREDENTIALSERVICE_URL: http://ssi-dim-wallet-service:8080/api
+        bdrs:
+          server:
+            url: http://bdrs-server:8082/api/directory
+      dataplane:
+        env:
+          TX_EDC_IAM_IATP_CREDENTIALSERVICE_URL: http://ssi-dim-wallet-service:8080/api
+          TX_EDC_IAM_DCP_CREDENTIALSERVICE_URL: http://ssi-dim-wallet-service:8080/api
+
+dataconsumerTwo:
+  # Scenario S2 starts with the third connector disabled and enables it later
+  # to demonstrate first-cycle convergence for a newly joined participant.
+  enabled: false
+  dataspace-connector-bundle:
+    tractusx-connector:
+      participant:
+        id: did:web:ssi-dim-wallet-stub.tx.test:BPNL00000003AVTH
+        bpnl: BPNL00000003AVTH
+        contextId: "00000000-0000-0000-0000-000000000003"
+      dcp:
+        trustedIssuers:
+          - did:web:ssi-dim-wallet-stub.tx.test:BPNL00000003CRHK
+        sts:
+          div:
+            url: http://ssi-dim-wallet-service:8080/api/sts
+          oauth:
+            token_url: http://ssi-dim-wallet-service:8080/oauth/token
+            client:
+              id: BPNL00000003AVTH
+              secret_alias: edc-wallet-secret
+        cache:
+          enabled: true
+          validity: 86400
+      iatp:
+        sts:
+          dim:
+            url: http://ssi-dim-wallet-service:8080/api/sts
+          oauth:
+            token_url: http://ssi-dim-wallet-service:8080/oauth/token
+            client:
+              id: BPNL00000003AVTH
+              secret_alias: edc-wallet-secret
+      controlplane:
+        image:
+          repository: ghcr.io/adtorales/edc-demo
+          tag: latest
+          pullPolicy: IfNotPresent
+        env:
+          EDC_REGISTRY: http://tap74-registry:8181/registry
+          EDC_RECONCILER_INTERVAL_SECONDS: "30"
+          EDC_RECONCILER_INITIAL_DELAY_SECONDS: "10"
+          TX_EDC_IAM_IATP_CREDENTIALSERVICE_URL: http://ssi-dim-wallet-service:8080/api
+          TX_EDC_IAM_DCP_CREDENTIALSERVICE_URL: http://ssi-dim-wallet-service:8080/api
+        bdrs:
+          server:
+            url: http://bdrs-server:8082/api/directory
+      dataplane:
+        env:
+          TX_EDC_IAM_IATP_CREDENTIALSERVICE_URL: http://ssi-dim-wallet-service:8080/api
+          TX_EDC_IAM_DCP_CREDENTIALSERVICE_URL: http://ssi-dim-wallet-service:8080/api

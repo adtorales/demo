@@ -1,0 +1,20 @@
+{{- /*
+* Copyright (c) 2026 Contributors to the Eclipse Foundation
+*
+* SPDX-License-Identifier: Apache-2.0
+*/}}
+
+{{- if .Values.tap74Registry.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: tap74-registry
+spec:
+  selector:
+    app: tap74-registry
+  ports:
+    - name: http
+      protocol: TCP
+      port: {{ .Values.tap74Registry.service.port }}
+      targetPort: {{ .Values.tap74Registry.service.port }}
+{{- end }}

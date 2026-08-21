@@ -1,0 +1,69 @@
+---
+# Local-only resource overrides for the TAP 7.4 demonstrator.
+# These values keep the scenario small enough for a Minikube cluster.
+
+# The xregistry OCI catalog artifacts are public, so the registry pulls them
+# anonymously and no GHCR pull secret is required locally.
+tap74Registry:
+  credentials:
+    existingSecret: ""
+
+bdrs-server-memory:
+  server:
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 300m
+        memory: 256Mi
+
+dataconsumerOne:
+  dataspace-connector-bundle:
+    tractusx-connector:
+      controlplane:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            cpu: 400m
+            memory: 512Mi
+      dataplane:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            cpu: 400m
+            memory: 512Mi
+
+tx-data-provider:
+  dataspace-connector-bundle:
+    tractusx-connector:
+      controlplane:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            cpu: 400m
+            memory: 512Mi
+      dataplane:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            cpu: 400m
+            memory: 512Mi
+  digital-twin-bundle:
+    digital-twin-registry:
+      registry:
+        resources:
+          requests:
+            cpu: 250m
+            memory: 1024Mi
+          limits:
+            cpu: 1000m
+            memory: 1536Mi

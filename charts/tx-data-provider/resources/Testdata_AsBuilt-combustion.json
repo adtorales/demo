@@ -1,0 +1,3470 @@
+{
+  "policies": {
+    "test-access": {
+      "@context": [
+        "https://w3id.org/dspace/2025/1/odrl-profile.jsonld",
+        "https://w3id.org/catenax/2025/9/policy/context.jsonld",
+        {
+          "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
+        }
+      ],
+      "@id": "test-access",
+      "@type": "PolicyDefinition",
+      "policy": {
+        "@type": "Set",
+        "permission": [
+          {
+            "action": "access",
+            "constraint": [
+              {
+                "and": [
+                  {
+                    "leftOperand": "Membership",
+                    "operator": "eq",
+                    "rightOperand": "active"
+                  },
+                  {
+                    "leftOperand": "FrameworkAgreement",
+                    "operator": "eq",
+                    "rightOperand": "DataExchangeGovernance:1.0"
+                  },
+                  {
+                    "leftOperand": "BusinessPartnerNumber",
+                    "operator": "isAnyOf",
+                    "rightOperand": ["BPNL00000003AZQP"]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "test-usage": {
+      "@context": [
+        "https://w3id.org/dspace/2025/1/odrl-profile.jsonld",
+        "https://w3id.org/catenax/2025/9/policy/context.jsonld",
+        {
+          "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
+        },
+        {}
+      ],
+      "@type": "PolicyDefinition",
+      "@id": "test-usage",
+      "policy": {
+        "@type": "Set",
+        "permission": [
+          {
+            "action": "use",
+            "constraint": {
+              "and": [
+                {
+                  "leftOperand": "Membership",
+                  "operator": "eq",
+                  "rightOperand": "active"
+                },
+                {
+                  "leftOperand": "FrameworkAgreement",
+                  "operator": "eq",
+                  "rightOperand": "DataExchangeGovernance:1.0"
+                },
+                {
+                  "leftOperand": "UsagePurpose",
+                  "operator": "isAnyOf",
+                  "rightOperand": ["cx.core.industrycore:1"]
+                }
+              ]
+            }
+          }
+        ],
+        "prohibition": [],
+        "obligation": []
+      }
+    }
+  },
+  "https://catenax.io/schema/TestDataContainer/1.0.0": [
+    {
+      "catenaXId": "urn:uuid:77a75e30-9733-4f54-9cf6-43b41b8dc780",
+      "bpnl": "null",
+      "PlainObject": [
+        {
+          "BPN_OEM_C": "BPNL00000003AZQP",
+          "BPN_OEM_A": "BPNL00000003AYRE",
+          "BPN_OEM_B": "BPNL00000003AVTH",
+          "BPN_IRS_TEST": "BPNL00000003AWSS",
+          "BPN_N_TIER_A": "BPNL00000003B0Q0",
+          "BATCH_SEALANT_1": "urn:uuid:e3b2f5e2-5be5-4ea6-98f0-6876de0fca4f",
+          "BATCH_SEALANT_2": "urn:uuid:533543fb-5d09-4270-b4d5-0323de239d9a",
+          "AUTHOR": "T-Systems",
+          "BATCH_GLUE_2": "urn:uuid:8e08eaba-cd33-49ae-bde7-2cd64e88f30b",
+          "BATCH_GLUE_1": "urn:uuid:14dcdfbd-73ba-43e9-8b5c-547e19271213",
+          "BPN_TRACEX_A_SITE_A": "BPNS0000000008ZZ",
+          "BPN_TRACEX_B": "BPNL00000003CNKC",
+          "BPN_DISMANTLER": "BPNL00000003B6LU",
+          "BPN_TRACEX_A": "BPNL00000003CML1",
+          "BPN_TRACEX_B_SITE_A": "BPNS00000008BDFH",
+          "BPN_TIER_A": "BPNL00000003B2OM",
+          "BPN_TIER_C": "BPNL00000003CSGV",
+          "SPT_MPO_LINK": "urn:uuid:029cff7f-2abe-4033-bece-62b55f17fbc4",
+          "BPN_TIER_B": "BPNL00000003B5MJ",
+          "BPN_SUB_TIER_B": "BPNL00000003AXS3",
+          "BPN_SUB_TIER_A": "BPNL00000003B3NX",
+          "BATCH_CATHODE_1": "urn:uuid:98a8a7e9-b265-479c-a11e-77219f94d659",
+          "BATCH_CATHODE_2": "urn:uuid:e3754252-85e0-4b50-98a0-b4010565fa07",
+          "BPN_SUB_TIER_C": "BPNL00000000BJTL",
+          "CREATION_DATE": "2023-09-29T10:20:58.926Z",
+          "BATCH_POLYAMID_1": "urn:uuid:6b54b8a3-d7e7-43ab-8e31-59e852af6a11",
+          "BATCH_POLYAMID_2": "urn:uuid:943b225b-47b9-429f-a00c-e5034749220d"
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e",
+          "childItems": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 1
+              },
+              "businessPartner": "BPNL00000003AYRE",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            },
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 1
+              },
+              "businessPartner": "BPNL00000003B2OM",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            },
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 1
+              },
+              "businessPartner": "BPNL00000003B5MJ",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ]
+        }
+      ],
+      "bpnl": "BPNL00000003AYRE",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e",
+          "partTypeInformation": {
+            "manufacturerPartId": "ZX-55",
+            "classification": "product",
+            "nameAtManufacturer": "Vehicle Model A"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e",
+          "sites": [
+            {
+              "functionValidUntil": "2032-08-09T02:11:44.000Z",
+              "catenaXsiteId": "BPNS000004711DMY",
+              "function": "production",
+              "functionValidFrom": "2014-05-02T12:21:56.000Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c",
+          "childItems": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 6
+              },
+              "businessPartner": "BPNL00000003AYRE",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ]
+        }
+      ],
+      "bpnl": "BPNL00000003AYRE",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c",
+          "partTypeInformation": {
+            "manufacturerPartId": "38049661-08",
+            "classification": "product",
+            "nameAtManufacturer": "OEM A High Voltage Battery"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c",
+          "sites": [
+            {
+              "functionValidUntil": "2030-09-23T02:17:24.000Z",
+              "catenaXsiteId": "BPNS000004711DMY",
+              "function": "production",
+              "functionValidFrom": "2018-11-03T14:27:17.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "964704",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "bioBasedClass": "gen2",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 15
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "3.1",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:decigram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Bluecert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "AISI",
+                "referencedStandardID": "5936",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": true,
+                    "chemicalRecycling": {
+                      "isMassBalanced": false,
+                      "percentageOfMaterialWeight": 11
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97",
+          "childItems": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 10
+              },
+              "businessPartner": "BPNL00000003AYRE",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            },
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323",
+              "quantity": {
+                "unit": "unit:kilogram",
+                "value": 0.11
+              },
+              "businessPartner": "BPNL00000003AXS3",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ]
+        }
+      ],
+      "bpnl": "BPNL00000003AYRE",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97",
+          "partTypeInformation": {
+            "manufacturerPartId": "8840838-04",
+            "classification": "product",
+            "nameAtManufacturer": "HV Modul"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97",
+          "sites": [
+            {
+              "functionValidUntil": "2031-10-12T04:51:28.000Z",
+              "catenaXsiteId": "BPNS000004711DMY",
+              "function": "production",
+              "functionValidFrom": "2019-12-29T16:36:39.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "44058",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "bioBasedClass": "gen1",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 13
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "4.2",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:centigram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Redcert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "AISI",
+                "referencedStandardID": "2920",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": true,
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 10
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 12
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9",
+          "childItems": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 1
+              },
+              "businessPartner": "BPNL00000003B0Q0",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ]
+        }
+      ],
+      "bpnl": "BPNL00000003AYRE",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9",
+          "partTypeInformation": {
+            "manufacturerPartId": "8840374-09",
+            "classification": "product",
+            "nameAtManufacturer": "ZB ZELLE"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9",
+          "sites": [
+            {
+              "functionValidUntil": "2031-03-17T07:19:55.000Z",
+              "catenaXsiteId": "BPNS000004711DMY",
+              "function": "production",
+              "functionValidFrom": "2016-03-08T11:56:01.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "358677",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 14
+                },
+                "bioBasedClass": "gen2",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 10
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "2.1",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:gram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Yellowcert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "JASO",
+                "referencedStandardID": "8149",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": false,
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699",
+          "childItems": []
+        }
+      ],
+      "bpnl": "BPNL00000003B0Q0",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699",
+          "partTypeInformation": {
+            "manufacturerPartId": "7A047C7-01",
+            "classification": "product",
+            "nameAtManufacturer": "N Tier A CathodeMaterial"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699",
+          "sites": [
+            {
+              "functionValidUntil": "2028-09-25T14:38:07.000Z",
+              "catenaXsiteId": "BPNS00000003B0Q0",
+              "function": "production",
+              "functionValidFrom": "2013-01-13T21:53:56.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "189071",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 14
+                },
+                "bioBasedClass": "gen1",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 10
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "2.1",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:centigram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Yellowcert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "JIS",
+                "referencedStandardID": "9597",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": true,
+                    "chemicalRecycling": {
+                      "isMassBalanced": false,
+                      "percentageOfMaterialWeight": 13
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 12
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323",
+          "childItems": []
+        }
+      ],
+      "bpnl": "BPNL00000003AXS3",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323",
+          "partTypeInformation": {
+            "manufacturerPartId": "9A047C7-01",
+            "classification": "product",
+            "nameAtManufacturer": "Sub Tier B Sealant"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323",
+          "sites": [
+            {
+              "functionValidUntil": "2028-11-24T09:15:39.000Z",
+              "catenaXsiteId": "BPNS00000003AXS3",
+              "function": "production",
+              "functionValidFrom": "2020-02-27T23:48:03.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "256763",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "bioBasedClass": "gen3",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 14
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "1.1",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:gram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Bluecert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "JIS",
+                "referencedStandardID": "5169",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": false,
+                    "chemicalRecycling": {
+                      "isMassBalanced": false,
+                      "percentageOfMaterialWeight": 14
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 12
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 10
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 12
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7",
+          "childItems": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 1
+              },
+              "businessPartner": "BPNL00000003B3NX",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            },
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:4518c080-14fb-4252-b8de-4362d615868d",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 1
+              },
+              "businessPartner": "BPNL00000003B0Q0",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ]
+        }
+      ],
+      "bpnl": "BPNL00000003B2OM",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7",
+          "partTypeInformation": {
+            "manufacturerPartId": "32494586-73",
+            "classification": "product",
+            "nameAtManufacturer": "Tier A Gearbox"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            },
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:68904173-ad59-4a77-8412-3e73fcafbd8b",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7",
+          "sites": [
+            {
+              "functionValidUntil": "2024-11-10T09:37:04.000Z",
+              "catenaXsiteId": "BPNS00000003B2OM",
+              "function": "production",
+              "functionValidFrom": "2017-08-21T23:20:17.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "969986",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 13
+                },
+                "bioBasedClass": "gen3",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 13
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "5.1",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:gram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Greencert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "JIS",
+                "referencedStandardID": "3760",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": false,
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc",
+          "childItems": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 1
+              },
+              "businessPartner": "BPNL00000003B0Q0",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ]
+        }
+      ],
+      "bpnl": "BPNL00000003B3NX",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc",
+          "partTypeInformation": {
+            "manufacturerPartId": "6740244-02",
+            "classification": "product",
+            "nameAtManufacturer": "Sub Tier A Sensor"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "472610",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 13
+                },
+                "bioBasedClass": "gen2",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 13
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "2.1",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:centigram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Bluecert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "GB",
+                "referencedStandardID": "9865",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": true,
+                    "chemicalRecycling": {
+                      "isMassBalanced": false,
+                      "percentageOfMaterialWeight": 12
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 12
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e",
+          "childItems": []
+        }
+      ],
+      "bpnl": "BPNL00000003B0Q0",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e",
+          "partTypeInformation": {
+            "manufacturerPartId": "7A047KK-01",
+            "classification": "product",
+            "nameAtManufacturer": "N Tier A NTier Product"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e",
+          "sites": [
+            {
+              "functionValidUntil": "2029-12-12T20:52:56.000Z",
+              "catenaXsiteId": "BPNS00000003B0Q0",
+              "function": "production",
+              "functionValidFrom": "2013-02-12T16:37:07.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "809218",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 10
+                },
+                "bioBasedClass": "gen1",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 19
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "4.2",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:decagram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Bluecert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "JASO",
+                "referencedStandardID": "2931",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": false,
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 10
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:4518c080-14fb-4252-b8de-4362d615868d",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:4518c080-14fb-4252-b8de-4362d615868d",
+          "childItems": []
+        }
+      ],
+      "bpnl": "BPNL00000003B0Q0",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:4518c080-14fb-4252-b8de-4362d615868d",
+          "partTypeInformation": {
+            "manufacturerPartId": "7A987KK-04",
+            "classification": "product",
+            "nameAtManufacturer": "N Tier A Plastics"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:4518c080-14fb-4252-b8de-4362d615868d"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:4518c080-14fb-4252-b8de-4362d615868d",
+          "sites": [
+            {
+              "functionValidUntil": "2031-04-17T22:24:22.000Z",
+              "catenaXsiteId": "BPNS00000003B0Q0",
+              "function": "production",
+              "functionValidFrom": "2019-03-30T08:41:08.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "736994",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 14
+                },
+                "bioBasedClass": "gen1",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 18
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "1.1",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:decigram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Bluecert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "EN",
+                "referencedStandardID": "4785",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": false,
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 12
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b",
+          "childItems": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 1
+              },
+              "businessPartner": "BPNL00000003B3NX",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            },
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301",
+              "quantity": {
+                "unit": "unit:kilogram",
+                "value": 0.3301
+              },
+              "businessPartner": "BPNL00000003AXS3",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ]
+        }
+      ],
+      "bpnl": "BPNL00000003B5MJ",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b",
+          "partTypeInformation": {
+            "manufacturerPartId": "ZX-55",
+            "classification": "product",
+            "nameAtManufacturer": "Tier B ECU1"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            },
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:68904173-ad59-4a77-8412-3e73fcafbd8b",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b",
+          "sites": [
+            {
+              "functionValidUntil": "2031-07-14T14:36:49.000Z",
+              "catenaXsiteId": "BPNS00000003B5MJ",
+              "function": "production",
+              "functionValidFrom": "2018-02-07T04:54:43.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "906993",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 10
+                },
+                "bioBasedClass": "gen3",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 24
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "4.2",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:decagram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Yellowcert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "EN",
+                "referencedStandardID": "1942",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": true,
+                    "chemicalRecycling": {
+                      "isMassBalanced": false,
+                      "percentageOfMaterialWeight": 10
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 10
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 10
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301",
+          "childItems": []
+        }
+      ],
+      "bpnl": "BPNL00000003AXS3",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301",
+          "partTypeInformation": {
+            "manufacturerPartId": "6775244-06",
+            "classification": "product",
+            "nameAtManufacturer": "Sub Tier B Glue"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            },
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:e3e2a4d8-58bc-4ae9-afa2-e8946fda1f77",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301",
+          "sites": [
+            {
+              "functionValidUntil": "2029-07-21T18:50:17.000Z",
+              "catenaXsiteId": "BPNS00000003AXS3",
+              "function": "production",
+              "functionValidFrom": "2016-05-20T12:11:20.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "748259",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 13
+                },
+                "bioBasedClass": "gen3",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 14
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "3.1",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:gram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Yellowcert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "EN",
+                "referencedStandardID": "7650",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": false,
+                    "chemicalRecycling": {
+                      "isMassBalanced": false,
+                      "percentageOfMaterialWeight": 11
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 12
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e",
+          "childItems": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 1
+              },
+              "businessPartner": "BPNL00000003AYRE",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            },
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 1
+              },
+              "businessPartner": "BPNL00000003B2OM",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            },
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 1
+              },
+              "businessPartner": "BPNL00000003B5MJ",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ]
+        }
+      ],
+      "bpnl": "BPNL00000003AYRE",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e",
+          "partTypeInformation": {
+            "manufacturerPartId": "ZX-55",
+            "classification": "product",
+            "nameAtManufacturer": "Vehicle Model A"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e",
+          "sites": [
+            {
+              "functionValidUntil": "2032-08-09T02:11:44.000Z",
+              "catenaXsiteId": "BPNS000004711DMY",
+              "function": "production",
+              "functionValidFrom": "2014-05-02T12:21:56.000Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c",
+          "childItems": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 6
+              },
+              "businessPartner": "BPNL00000003AYRE",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ]
+        }
+      ],
+      "bpnl": "BPNL00000003AYRE",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c",
+          "partTypeInformation": {
+            "manufacturerPartId": "38049661-08",
+            "classification": "product",
+            "nameAtManufacturer": "OEM A High Voltage Battery"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c",
+          "sites": [
+            {
+              "functionValidUntil": "2030-09-23T02:17:24.000Z",
+              "catenaXsiteId": "BPNS000004711DMY",
+              "function": "production",
+              "functionValidFrom": "2018-11-03T14:27:17.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "964704",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "bioBasedClass": "gen2",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 15
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "3.1",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:decigram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Bluecert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "AISI",
+                "referencedStandardID": "5936",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": true,
+                    "chemicalRecycling": {
+                      "isMassBalanced": false,
+                      "percentageOfMaterialWeight": 11
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97",
+          "childItems": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 10
+              },
+              "businessPartner": "BPNL00000003AYRE",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            },
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323",
+              "quantity": {
+                "unit": "unit:kilogram",
+                "value": 0.11
+              },
+              "businessPartner": "BPNL00000003AXS3",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ]
+        }
+      ],
+      "bpnl": "BPNL00000003AYRE",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97",
+          "partTypeInformation": {
+            "manufacturerPartId": "8840838-04",
+            "classification": "product",
+            "nameAtManufacturer": "HV Modul"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97",
+          "sites": [
+            {
+              "functionValidUntil": "2031-10-12T04:51:28.000Z",
+              "catenaXsiteId": "BPNS000004711DMY",
+              "function": "production",
+              "functionValidFrom": "2019-12-29T16:36:39.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "44058",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "bioBasedClass": "gen1",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 13
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "4.2",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:centigram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Redcert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "AISI",
+                "referencedStandardID": "2920",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": true,
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 10
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 12
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9",
+          "childItems": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 1
+              },
+              "businessPartner": "BPNL00000003B0Q0",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ]
+        }
+      ],
+      "bpnl": "BPNL00000003AYRE",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9",
+          "partTypeInformation": {
+            "manufacturerPartId": "8840374-09",
+            "classification": "product",
+            "nameAtManufacturer": "ZB ZELLE"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9",
+          "sites": [
+            {
+              "functionValidUntil": "2031-03-17T07:19:55.000Z",
+              "catenaXsiteId": "BPNS000004711DMY",
+              "function": "production",
+              "functionValidFrom": "2016-03-08T11:56:01.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "358677",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 14
+                },
+                "bioBasedClass": "gen2",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 10
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "2.1",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:gram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Yellowcert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "JASO",
+                "referencedStandardID": "8149",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": false,
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699",
+          "childItems": []
+        }
+      ],
+      "bpnl": "BPNL00000003B0Q0",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699",
+          "partTypeInformation": {
+            "manufacturerPartId": "7A047C7-01",
+            "classification": "product",
+            "nameAtManufacturer": "N Tier A CathodeMaterial"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699",
+          "sites": [
+            {
+              "functionValidUntil": "2028-09-25T14:38:07.000Z",
+              "catenaXsiteId": "BPNS00000003B0Q0",
+              "function": "production",
+              "functionValidFrom": "2013-01-13T21:53:56.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "189071",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 14
+                },
+                "bioBasedClass": "gen1",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 10
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "2.1",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:centigram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Yellowcert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "JIS",
+                "referencedStandardID": "9597",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": true,
+                    "chemicalRecycling": {
+                      "isMassBalanced": false,
+                      "percentageOfMaterialWeight": 13
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 12
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323",
+          "childItems": []
+        }
+      ],
+      "bpnl": "BPNL00000003AXS3",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323",
+          "partTypeInformation": {
+            "manufacturerPartId": "9A047C7-01",
+            "classification": "product",
+            "nameAtManufacturer": "Sub Tier B Sealant"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323",
+          "sites": [
+            {
+              "functionValidUntil": "2028-11-24T09:15:39.000Z",
+              "catenaXsiteId": "BPNS00000003AXS3",
+              "function": "production",
+              "functionValidFrom": "2020-02-27T23:48:03.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "256763",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "bioBasedClass": "gen3",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 14
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "1.1",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:gram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Bluecert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "JIS",
+                "referencedStandardID": "5169",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": false,
+                    "chemicalRecycling": {
+                      "isMassBalanced": false,
+                      "percentageOfMaterialWeight": 14
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 12
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 10
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 12
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7",
+          "childItems": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 1
+              },
+              "businessPartner": "BPNL00000003B3NX",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            },
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:4518c080-14fb-4252-b8de-4362d615868d",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 1
+              },
+              "businessPartner": "BPNL00000003B0Q0",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ]
+        }
+      ],
+      "bpnl": "BPNL00000003B2OM",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7",
+          "partTypeInformation": {
+            "manufacturerPartId": "32494586-73",
+            "classification": "product",
+            "nameAtManufacturer": "Tier A Gearbox"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            },
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:68904173-ad59-4a77-8412-3e73fcafbd8b",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7",
+          "sites": [
+            {
+              "functionValidUntil": "2024-11-10T09:37:04.000Z",
+              "catenaXsiteId": "BPNS00000003B2OM",
+              "function": "production",
+              "functionValidFrom": "2017-08-21T23:20:17.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "969986",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 13
+                },
+                "bioBasedClass": "gen3",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 13
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "5.1",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:gram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Greencert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "JIS",
+                "referencedStandardID": "3760",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": false,
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc",
+          "childItems": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 1
+              },
+              "businessPartner": "BPNL00000003B0Q0",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ]
+        }
+      ],
+      "bpnl": "BPNL00000003B3NX",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc",
+          "partTypeInformation": {
+            "manufacturerPartId": "6740244-02",
+            "classification": "product",
+            "nameAtManufacturer": "Sub Tier A Sensor"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "472610",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 13
+                },
+                "bioBasedClass": "gen2",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 13
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "2.1",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:centigram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Bluecert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "GB",
+                "referencedStandardID": "9865",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": true,
+                    "chemicalRecycling": {
+                      "isMassBalanced": false,
+                      "percentageOfMaterialWeight": 12
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 12
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e",
+          "childItems": []
+        }
+      ],
+      "bpnl": "BPNL00000003B0Q0",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e",
+          "partTypeInformation": {
+            "manufacturerPartId": "7A047KK-01",
+            "classification": "product",
+            "nameAtManufacturer": "N Tier A NTier Product"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e",
+          "sites": [
+            {
+              "functionValidUntil": "2029-12-12T20:52:56.000Z",
+              "catenaXsiteId": "BPNS00000003B0Q0",
+              "function": "production",
+              "functionValidFrom": "2013-02-12T16:37:07.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "809218",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 10
+                },
+                "bioBasedClass": "gen1",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 19
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "4.2",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:decagram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Bluecert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "JASO",
+                "referencedStandardID": "2931",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": false,
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 10
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:4518c080-14fb-4252-b8de-4362d615868d",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:4518c080-14fb-4252-b8de-4362d615868d",
+          "childItems": []
+        }
+      ],
+      "bpnl": "BPNL00000003B0Q0",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:4518c080-14fb-4252-b8de-4362d615868d",
+          "partTypeInformation": {
+            "manufacturerPartId": "7A987KK-04",
+            "classification": "product",
+            "nameAtManufacturer": "N Tier A Plastics"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:4518c080-14fb-4252-b8de-4362d615868d"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:4518c080-14fb-4252-b8de-4362d615868d",
+          "sites": [
+            {
+              "functionValidUntil": "2031-04-17T22:24:22.000Z",
+              "catenaXsiteId": "BPNS00000003B0Q0",
+              "function": "production",
+              "functionValidFrom": "2019-03-30T08:41:08.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "736994",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 14
+                },
+                "bioBasedClass": "gen1",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 18
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "1.1",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:decigram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Bluecert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "EN",
+                "referencedStandardID": "4785",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": false,
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 12
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b",
+          "childItems": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc",
+              "quantity": {
+                "unit": "unit:piece",
+                "value": 1
+              },
+              "businessPartner": "BPNL00000003B3NX",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            },
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:17:29.187+01:00",
+                "validTo": "2024-07-01T16:10:00.000+01:00"
+              },
+              "catenaXId": "urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301",
+              "quantity": {
+                "unit": "unit:kilogram",
+                "value": 0.3301
+              },
+              "businessPartner": "BPNL00000003AXS3",
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ]
+        }
+      ],
+      "bpnl": "BPNL00000003B5MJ",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b",
+          "partTypeInformation": {
+            "manufacturerPartId": "ZX-55",
+            "classification": "product",
+            "nameAtManufacturer": "Tier B ECU1"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            },
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:68904173-ad59-4a77-8412-3e73fcafbd8b",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b",
+          "sites": [
+            {
+              "functionValidUntil": "2031-07-14T14:36:49.000Z",
+              "catenaXsiteId": "BPNS00000003B5MJ",
+              "function": "production",
+              "functionValidFrom": "2018-02-07T04:54:43.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "906993",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 10
+                },
+                "bioBasedClass": "gen3",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 24
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "4.2",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:decagram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Yellowcert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "EN",
+                "referencedStandardID": "1942",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": true,
+                    "chemicalRecycling": {
+                      "isMassBalanced": false,
+                      "percentageOfMaterialWeight": 10
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 10
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 10
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "catenaXId": "urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301",
+      "urn:samm:io.catenax.single_level_bom_as_planned:3.0.0#SingleLevelBomAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301",
+          "childItems": []
+        }
+      ],
+      "bpnl": "BPNL00000003AXS3",
+      "urn:samm:io.catenax.part_as_planned:2.0.0#PartAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301",
+          "partTypeInformation": {
+            "manufacturerPartId": "6775244-06",
+            "classification": "product",
+            "nameAtManufacturer": "Sub Tier B Glue"
+          },
+          "partSitesInformationAsPlanned": [
+            {
+              "functionValidUntil": "2023-12-11T06:14:55.183Z",
+              "catenaXsiteId": "BPNS1234567890ZZ",
+              "function": "production",
+              "functionValidFrom": "2023-12-11T06:14:55.181Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.single_level_usage_as_planned:1.1.0#SingleLevelUsageAsPlanned": [
+        {
+          "parentParts": [
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            },
+            {
+              "validityPeriod": {
+                "validFrom": "2023-03-21T08:47:14.438+01:00",
+                "validTo": "2024-08-02T09:00:00.000+01:00"
+              },
+              "parentCatenaXId": "urn:uuid:e3e2a4d8-58bc-4ae9-afa2-e8946fda1f77",
+              "quantity": {
+                "quantityNumber": 2.5,
+                "measurementUnit": "unit:litre"
+              },
+              "createdOn": "2022-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301"
+        }
+      ],
+      "urn:samm:io.catenax.part_site_information_as_planned:1.0.0#PartSiteInformationAsPlanned": [
+        {
+          "catenaXId": "urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301",
+          "sites": [
+            {
+              "functionValidUntil": "2029-07-21T18:50:17.000Z",
+              "catenaXsiteId": "BPNS00000003AXS3",
+              "function": "production",
+              "functionValidFrom": "2016-05-20T12:11:20.000Z"
+            }
+          ]
+        }
+      ],
+      "urn:samm:io.catenax.secondary_material_content_calculated:1.0.0#SecondaryMaterialContentCalculated": [
+        {
+          "orderNumber": "748259",
+          "secondaryMaterialContent": [
+            {
+              "bioBased": {
+                "primaryBioBased": {
+                  "percentageOfMaterialWeight": 13
+                },
+                "bioBasedClass": "gen3",
+                "secondaryBioBased": {
+                  "isMassBalanced": true,
+                  "percentageOfMaterialWeight": 14
+                }
+              },
+              "additionalInformation": "eOMtThyhVNLWUZNRcBaQKxI",
+              "materialClass": "3.1",
+              "unitOfMeasure": {
+                "unitOfMeasureKey": "unit:gram",
+                "grossMaterialInputMass": 3500,
+                "materialNetMass": 3000
+              },
+              "certificate": [
+                {
+                  "certificateName": "Yellowcert",
+                  "certificateLink": "telnet://192.0.2.16:80/"
+                }
+              ],
+              "materialNameStandardized": {
+                "referencedStandard": "EN",
+                "referencedStandardID": "7650",
+                "materialNameStandardizedValue": "PP-TD10"
+              },
+              "inorganic": {
+                "primaryInorganic": {
+                  "percentageOfMaterialWeight": 12
+                },
+                "secondaryInorganic": {
+                  "postConsumer": {
+                    "isPreviousIndustryAutomotive": false,
+                    "chemicalRecycling": {
+                      "isMassBalanced": false,
+                      "percentageOfMaterialWeight": 11
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 14
+                    }
+                  },
+                  "postConsumerAutomotive": {
+                    "chemicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 12
+                    },
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 13
+                    }
+                  },
+                  "preConsumer": {
+                    "mechanicalRecycling": {
+                      "isMassBalanced": true,
+                      "percentageOfMaterialWeight": 11
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
