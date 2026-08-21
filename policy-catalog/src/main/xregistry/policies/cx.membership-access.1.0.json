@@ -1,0 +1,32 @@
+{
+  "groupId": "cx",
+  "resourceId": "membership-access",
+  "versionId": "1.0",
+  "accessPolicy": true,
+  "controlPolicy": false,
+  "policyDefinitionId": "cx/membership-access/1.0",
+  "policyDefinition": {
+    "@context": {
+      "odrl": "http://www.w3.org/ns/odrl/2/"
+    },
+    "@id": "cx/membership-access/1.0",
+    "@type": "odrl:Set",
+    "permission": [
+      {
+        "action": "use",
+        "constraint": [
+          {
+            "leftOperand": "Membership",
+            "operator": "eq",
+            "rightOperand": "active"
+          },
+          {
+            "leftOperand": "FrameworkAgreement",
+            "operator": "eq",
+            "rightOperand": "CX-2026"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "groupId": "cx",
+  "resourceId": "invalid-raw-bpn",
+  "versionId": "1.0",
+  "accessPolicy": true,
+  "controlPolicy": false,
+  "policyDefinitionId": "cx/invalid-raw-bpn/1.0",
+  "policyDefinition": {
+    "@context": {
+      "odrl": "http://www.w3.org/ns/odrl/2/"
+    },
+    "@id": "cx/invalid-raw-bpn/1.0",
+    "@type": "odrl:Set",
+    "permission": [
+      {
+        "action": "use",
+        "constraint": [
+          {
+            "leftOperand": "FrameworkAgreement",
+            "operator": "eq",
+            "rightOperand": "CX-2026"
+          },
+          {
+            "leftOperand": "BusinessPartnerNumber",
+            "operator": "eq",
+            "rightOperand": "BPNL000000000001"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,8 +1,10 @@
 param(
-    [string]$UmbrellaPath = "",
+    [string]$UmbrellaChart = "tractusx-dev/umbrella",
+    [string]$UmbrellaChartVersion = "26.03.00",
+    [string]$RegistryChart = "oci://ghcr.io/adtorales/charts/tap74-registry",
+    [string]$RegistryChartVersion = "0.1.0",
     [string]$Namespace = "umbrella",
     [string]$ReleaseName = "umbrella",
-    [string]$BaseValuesFile = "values-adopter-data-exchange.yaml",
     [string]$RegistryImage = "ghcr.io/adtorales/tap74-registry:latest",
     [string]$EdcDemoImage = "ghcr.io/adtorales/edc-demo:latest",
     [switch]$ResetVaultWebhookConfigs,
@@ -46,16 +48,25 @@ function Add-InternalIngressDnsHost {
     }
 }
 
-$umbrellaRoot = if ($UmbrellaPath) { $UmbrellaPath } else { Join-Path $PSScriptRoot "..\tractus-x-umbrella" }
-$UmbrellaPath = (Resolve-Path $umbrellaRoot).Path
-$chartPath = Join-Path $UmbrellaPath "charts\umbrella"
-$registryChartPath = Join-Path $PSScriptRoot "charts\tap74-registry"
-$baseValuesPath = Join-Path $chartPath $BaseValuesFile
+function Ensure-DemoVaultSecret {
+    param([string]$VaultPod)
+
+    # The released Umbrella chart normally creates this through a post-install
+    # hook. Ensure it explicitly for the demo because hooks can run before the
+    # Vault StatefulSet accepts requests on a fresh Minikube cluster.
+    kubectl wait --for=condition=Ready "pod/$VaultPod" -n $Namespace --timeout=10m | Out-Null
+    kubectl exec -n $Namespace $VaultPod -- vault kv put secret/edc-wallet-secret content=changeme | Out-Null
+    if ($LASTEXITCODE -ne 0) {
+        throw "Failed to create edc-wallet-secret in Vault pod $VaultPod."
+    }
+}
+
+$baseValuesPath = Join-Path $PSScriptRoot "values\umbrella-base-data-exchange.yaml"
 $overlayPath = Join-Path $PSScriptRoot "values\values-tap74-reconcile.yaml"
 $resourcePath = Join-Path $PSScriptRoot "values\umbrella-tap74-local-resources.yaml"
 $registryValuesPath = Join-Path $PSScriptRoot "values\tap74-registry.yaml"
 
-@($chartPath, $registryChartPath, $baseValuesPath, $overlayPath, $resourcePath, $registryValuesPath) | ForEach-Object {
+@($baseValuesPath, $overlayPath, $resourcePath, $registryValuesPath) | ForEach-Object {
     if (-not (Test-Path $_)) { throw "Required deployment path not found: $_" }
 }
 
@@ -73,42 +84,32 @@ if ($ResetVaultWebhookConfigs) {
 # it to the in-cluster Ingress Service; Windows hosts entries only cover the host.
 Add-InternalIngressDnsHost "ssi-dim-wallet-stub.tx.test"
 
-$repos = @{
-    "tractusx-dev" = "https://eclipse-tractusx.github.io/charts/dev"; "hashicorp" = "https://helm.releases.hashicorp.com"
-    "bitnami" = "https://charts.bitnami.com/bitnami"; "runix" = "https://helm.runix.net"
-    "opentelemetry" = "https://open-telemetry.github.io/opentelemetry-helm-charts"; "jaegertracing" = "https://jaegertracing.github.io/helm-charts"
-    "prometheus-community" = "https://prometheus-community.github.io/helm-charts"; "grafana" = "https://grafana.github.io/helm-charts"; "jetstack" = "https://charts.jetstack.io"
-}
+$repos = @{ "tractusx-dev" = "https://eclipse-tractusx.github.io/charts/dev" }
 $configured = helm repo list 2>$null
 foreach ($name in $repos.Keys) { if (-not ($configured | Select-String -SimpleMatch $name)) { helm repo add $name $repos[$name] | Out-Null } }
 helm repo update | Out-Null
-
-foreach ($chartName in @("dataspace-connector-bundle", "digital-twin-bundle", "data-persistence-layer-bundle", "identity-and-trust-bundle", "tx-data-provider")) {
-    $dependencyChart = Join-Path $UmbrellaPath "charts\$chartName"
-    Write-Host "Building dependencies for $chartName..." -ForegroundColor Cyan
-    helm dependency build $dependencyChart --skip-refresh
-    if ($LASTEXITCODE -ne 0) {
-        throw "Helm dependency build failed for $dependencyChart (exit code $LASTEXITCODE)."
-    }
-}
 
 $separator = $RegistryImage.LastIndexOf(":")
 $registryRepository = if ($separator -ge 0) { $RegistryImage.Substring(0, $separator) } else { $RegistryImage }
 $registryTag = if ($separator -ge 0) { $RegistryImage.Substring($separator + 1) } else { "latest" }
 
 Write-Host "Deploying TAP 7.4 Registry from GHCR..." -ForegroundColor Cyan
-helm upgrade --install tap74-registry $registryChartPath --namespace $Namespace --create-namespace `
-    -f $registryValuesPath --set "image.repository=$registryRepository" --set "image.tag=$registryTag"
+if ($RegistryChart -like "oci://*") {
+    helm upgrade --install tap74-registry $RegistryChart --version $RegistryChartVersion --namespace $Namespace --create-namespace `
+        -f $registryValuesPath --set "image.repository=$registryRepository" --set "image.tag=$registryTag"
+} else {
+    helm upgrade --install tap74-registry $RegistryChart --namespace $Namespace --create-namespace `
+        -f $registryValuesPath --set "image.repository=$registryRepository" --set "image.tag=$registryTag"
+}
 
-Push-Location $chartPath
-try {
-    helm dependency build . --skip-refresh
-    Write-Host "Deploying Umbrella with TAP 7.4 images from GHCR..." -ForegroundColor Cyan
-    helm upgrade --install $ReleaseName . --namespace $Namespace --create-namespace `
-        -f $baseValuesPath -f $overlayPath -f $resourcePath `
-        --set "tap74Registry.enabled=false" `
-        --set "identity-and-trust-bundle.ssi-dim-wallet-stub.wallet.nameSpace=$Namespace" --timeout 20m
-} finally { Pop-Location }
+Write-Host "Deploying released Umbrella chart with TAP 7.4 images from GHCR..." -ForegroundColor Cyan
+helm upgrade --install $ReleaseName $UmbrellaChart --version $UmbrellaChartVersion --namespace $Namespace --create-namespace `
+    -f $baseValuesPath -f $overlayPath -f $resourcePath `
+    --set "tap74Registry.enabled=false" `
+    --set "identity-and-trust-bundle.ssi-dim-wallet-stub.wallet.nameSpace=$Namespace" --timeout 20m
+
+Ensure-DemoVaultSecret "$ReleaseName-edc-dataconsumer-1-vault-0"
+Ensure-DemoVaultSecret "$ReleaseName-edc-dataprovider-vault-0"
 
 Update-DataplaneSelectorUrl "$ReleaseName-dataconsumer-1-edc-dataplane" "$ReleaseName-dataconsumer-1-edc-controlplane"
 Update-DataplaneSelectorUrl "$ReleaseName-dataprovider-edc-dataplane" "$ReleaseName-dataprovider-edc-controlplane"
