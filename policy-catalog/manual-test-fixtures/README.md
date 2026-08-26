@@ -22,3 +22,12 @@ one reconciliation cycle (30 seconds) before checking the EDC logs.
 The S3 and S4 fixtures intentionally duplicate the validator's negative test
 fixtures so they can be copied directly into a pull request without modifying
 the test suite.
+
+## S5 publication rule
+
+An approved **major** schema tightening is allowed through the catalog gate
+even when it makes an unchanged, already-published policy non-compliant. The
+gate continues to validate every policy added or modified by the same pull
+request. After publication, the reconciler validates the legacy policy against
+the new schema, reports it as `invalid`, and freezes it without deleting or
+rewriting it. This is the intended S5 safety boundary.

@@ -59,6 +59,9 @@ public final class XrValidator {
         var policies = listJsonFiles(POLICIES_DIR);
         var companySchemas = loadSchemas(COMPANY_SCHEMAS_DIR);
         var dataspaceSchemas = loadSchemas(DATASPACE_SCHEMAS_DIR);
+        var range = resolveDiffRange();
+        var changedPolicies = changedPolicyFiles(range);
+        var allowsLegacySchemaInvalidation = hasBreakingMajorSchemaChange(range);
         require(!policies.isEmpty(), "At least one policy file is required");
         require(!companySchemas.isEmpty(), "At least one company schema file is required");
         require(!dataspaceSchemas.isEmpty(), "At least one dataspace schema file is required");
@@ -66,7 +69,11 @@ public final class XrValidator {
         var policyIds = new TreeSet<String>();
         for (var policyFile : policies) {
             var policy = readJson(policyFile);
-            validatePolicy(policyFile, policy, dataspaceSchemas, companySchemas, true);
+            var validateContent = !allowsLegacySchemaInvalidation || changedPolicies.contains(policyFile);
+            validatePolicy(policyFile, policy, dataspaceSchemas, companySchemas, true, validateContent);
+            if (!validateContent) {
+                System.out.println("Deferring schema-content validation for legacy policy after approved major schema change: " + policyFile.getFileName());
+            }
             require(policyIds.add(text(policy, "policyDefinitionId")), "Duplicate policyDefinitionId: " + text(policy, "policyDefinitionId"));
         }
         validateNegativeFixtures(dataspaceSchemas, companySchemas);
@@ -97,7 +104,13 @@ public final class XrValidator {
         return schemas;
     }
 
-    private static void validatePolicy(Path source, JsonNode policy, List<SchemaDocument> tier1, List<SchemaDocument> tier2, boolean requireCatalogFilename) {
+    private static void validatePolicy(Path source, JsonNode policy, List<SchemaDocument> tier1, List<SchemaDocument> tier2,
+                                       boolean requireCatalogFilename) {
+        validatePolicy(source, policy, tier1, tier2, requireCatalogFilename, true);
+    }
+
+    private static void validatePolicy(Path source, JsonNode policy, List<SchemaDocument> tier1, List<SchemaDocument> tier2,
+                                       boolean requireCatalogFilename, boolean validateContent) {
         for (var field : List.of("groupId", "resourceId", "versionId", "accessPolicy", "controlPolicy", "policyDefinitionId", "policyDefinition")) {
             require(policy.has(field), source.getFileName() + " is missing " + field);
         }
@@ -110,8 +123,10 @@ public final class XrValidator {
         require(definition.isObject(), source.getFileName() + " policyDefinition must be an object");
         require(text(definition, "@id").equals(text(policy, "policyDefinitionId")), source.getFileName() + " policyDefinition.@id must match policyDefinitionId");
         require("odrl:Set".equals(text(definition, "@type")), source.getFileName() + " must contain an odrl:Set policy definition");
-        validateAgainstSchemas(source, definition, tier1);
-        validateAgainstSchemas(source, definition, tier2);
+        if (validateContent) {
+            validateAgainstSchemas(source, definition, tier1);
+            validateAgainstSchemas(source, definition, tier2);
+        }
         var operands = constraints(definition).stream().map(node -> text(node, "leftOperand")).collect(Collectors.toSet());
         if (policy.path("controlPolicy").asBoolean()) {
             require(operands.contains("UsagePurpose"), source.getFileName() + " control policy must declare UsagePurpose");
@@ -157,15 +172,44 @@ public final class XrValidator {
         System.out.println("Version immutability check passed. Deletions are permitted for the S7 lifecycle scenario.");
     }
 
+    private static Set<Path> changedPolicyFiles(String range) throws Exception {
+        if (range.isBlank()) {
+            return Set.of();
+        }
+        return runCommand(List.of("git", "diff", "--name-only", range)).lines()
+                .map(XrValidator::catalogRelativePath)
+                .filter(path -> path.startsWith("src/main/xregistry/policies/"))
+                .map(REPO_ROOT::resolve).filter(Files::exists)
+                .collect(Collectors.toSet());
+    }
+
+    private static boolean hasBreakingMajorSchemaChange(String range) throws Exception {
+        if (range.isBlank()) {
+            return false;
+        }
+        var all = new ArrayList<Path>();
+        all.addAll(listJsonFiles(COMPANY_SCHEMAS_DIR));
+        all.addAll(listJsonFiles(DATASPACE_SCHEMAS_DIR));
+        for (var next : changedSchemaFiles(range)) {
+            var previous = previousVersion(next, all);
+            if (previous == null) {
+                continue;
+            }
+            var breaking = schemaBreaks(schemaBody(previous), schemaBody(next));
+            if (!breaking.isEmpty() && version(next).major() > version(previous).major()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private static void checkSchemaCompatibility() throws Exception {
         var range = resolveDiffRange();
         if (range.isBlank()) {
             System.out.println("Skipping schema compatibility check because no diff base was found.");
             return;
         }
-        var changed = runCommand(List.of("git", "diff", "--name-only", range)).lines()
-                .filter(path -> path.startsWith("src/main/xregistry/schemas/") || path.startsWith("dataspace/src/main/xregistry/schemas/"))
-                .map(REPO_ROOT::resolve).filter(Files::exists).toList();
+        var changed = changedSchemaFiles(range);
         var all = new ArrayList<Path>();
         all.addAll(listJsonFiles(COMPANY_SCHEMAS_DIR));
         all.addAll(listJsonFiles(DATASPACE_SCHEMAS_DIR));
@@ -182,6 +226,18 @@ public final class XrValidator {
             }
         }
         System.out.println("Schema compatibility check passed.");
+    }
+
+    private static List<Path> changedSchemaFiles(String range) throws Exception {
+        return runCommand(List.of("git", "diff", "--name-only", range)).lines()
+                .map(XrValidator::catalogRelativePath)
+                .filter(path -> path.startsWith("src/main/xregistry/schemas/") || path.startsWith("dataspace/src/main/xregistry/schemas/"))
+                .map(REPO_ROOT::resolve).filter(Files::exists).toList();
+    }
+
+    private static String catalogRelativePath(String path) {
+        var prefix = "policy-catalog/";
+        return path.startsWith(prefix) ? path.substring(prefix.length()) : path;
     }
 
     private static List<String> schemaBreaks(JsonNode previous, JsonNode next) {
