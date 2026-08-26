@@ -1,0 +1,28 @@
+meta {
+  name: 02 - Create provider contract definition
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{providerBaseUrl}}/contractdefinitions
+  body: json
+  auth: apikey
+}
+
+auth:apikey {
+  key: X-Api-Key
+  value: {{providerApiKey}}
+  placement: header
+}
+
+body:json {
+  {
+    "@context": { "@vocab": "https://w3id.org/edc/v0.0.1/ns/" },
+    "@id": "{{contractDefinitionId}}",
+    "@type": "ContractDefinition",
+    "accessPolicyId": "{{accessPolicyId}}",
+    "contractPolicyId": "{{contractPolicyId}}",
+    "assetsSelector": [{ "@type": "CriterionDto", "operandLeft": "https://w3id.org/edc/v0.0.1/ns/id", "operator": "=", "operandRight": "{{assetId}}" }]
+  }
+}

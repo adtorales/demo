@@ -1,0 +1,21 @@
+meta {
+  name: 02 - List consumer policies
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{consumerBaseUrl}}/policydefinitions/request
+  body: json
+  auth: apikey
+}
+
+auth:apikey {
+  key: X-Api-Key
+  value: {{consumerApiKey}}
+  placement: header
+}
+
+body:json {
+  { "@context": { "@vocab": "https://w3id.org/edc/v0.0.1/ns/" }, "@type": "QuerySpec", "offset": 0, "limit": 50 }
+}

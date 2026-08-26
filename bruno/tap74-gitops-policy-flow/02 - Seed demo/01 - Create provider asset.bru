@@ -1,0 +1,31 @@
+meta {
+  name: 01 - Create provider asset
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{providerBaseUrl}}/assets
+  body: json
+  auth: apikey
+}
+
+auth:apikey {
+  key: X-Api-Key
+  value: {{providerApiKey}}
+  placement: header
+}
+
+body:json {
+  {
+    "@context": { "@vocab": "https://w3id.org/edc/v0.0.1/ns/" },
+    "@id": "{{assetId}}",
+    "@type": "Asset",
+    "properties": {
+      "name": "TAP 7.4 Demo Asset",
+      "description": "Asset used by the GitOps Policy Flow demonstrator",
+      "contenttype": "application/json"
+    },
+    "dataAddress": { "@type": "DataAddress", "type": "HttpData", "baseUrl": "{{assetBaseUrl}}" }
+  }
+}

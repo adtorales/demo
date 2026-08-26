@@ -9,6 +9,10 @@ GitHub Actions validates catalog content and publishes OCI artifacts. The follow
 3. At least provider and consumer control planes are running with the reconciler enabled.
 4. Wait for the registry poll plus the reconciler interval before checking a result.
 
+Ready-to-copy files for S1-S7 are in
+[`../manual-test-fixtures/`](../manual-test-fixtures/README.md). They are kept
+outside the published catalog so each scenario can be applied independently.
+
 ## Acceptance matrix
 
 | Scenario | Manual action | Acceptance evidence |

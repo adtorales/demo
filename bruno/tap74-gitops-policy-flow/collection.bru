@@ -1,0 +1,15 @@
+vars:pre-request {
+  providerBaseUrl: http://dataprovider-controlplane.tx.test/management/v3
+  consumerBaseUrl: http://dataconsumer-1-controlplane.tx.test/management/v3
+  providerApiKey: TEST2
+  consumerApiKey: TEST1
+  providerDspUrl: http://umbrella-dataprovider-edc-controlplane:8084/api/v1/dsp/2025-1
+  providerBpn: BPNL00000003AYRE
+  protocol: dataspace-protocol-http:2025-1
+  assetBaseUrl: http://dataprovider-submodelserver.tx.test/api/shell-descriptors
+  assetId: tap74-asset-001
+  contractDefinitionId: tap74-contract-definition-001
+  accessPolicyId: cx/membership-access/1.0
+  contractPolicyId: cx/usage-framework/1.0
+  roguePolicyId: rogue-manual-test-001
+}

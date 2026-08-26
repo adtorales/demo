@@ -189,15 +189,36 @@ public final class XrValidator {
         var previousRequired = strings(previous.path("required"));
         var nextRequired = strings(next.path("required"));
         nextRequired.stream().filter(field -> !previousRequired.contains(field)).forEach(field -> breaks.add("added required field " + field));
-        var previousProperties = previous.path("properties");
-        next.path("properties").fields().forEachRemaining(entry -> {
-            var before = strings(previousProperties.path(entry.getKey()).path("enum"));
-            var after = strings(entry.getValue().path("enum"));
-            if (!before.isEmpty() && !after.isEmpty() && !after.containsAll(before)) {
-                breaks.add("shrunk enum " + entry.getKey());
+        var previousEnums = enumsByPath(previous, "$");
+        var nextEnums = enumsByPath(next, "$");
+        nextEnums.forEach((path, after) -> {
+            var before = previousEnums.get(path);
+            if (before != null && !before.isEmpty() && !after.isEmpty() && !after.containsAll(before)) {
+                breaks.add("shrunk enum " + path);
             }
         });
         return breaks;
+    }
+
+    /** Collects enums recursively so compatibility checks cover schemas composed with allOf/anyOf/oneOf. */
+    private static Map<String, Set<String>> enumsByPath(JsonNode node, String path) {
+        var enums = new java.util.LinkedHashMap<String, Set<String>>();
+        collectEnums(node, path, enums);
+        return enums;
+    }
+
+    private static void collectEnums(JsonNode node, String path, Map<String, Set<String>> enums) {
+        if (node.isObject()) {
+            var values = strings(node.path("enum"));
+            if (!values.isEmpty()) {
+                enums.put(path, values);
+            }
+            node.fields().forEachRemaining(entry -> collectEnums(entry.getValue(), path + "." + entry.getKey(), enums));
+        } else if (node.isArray()) {
+            for (var index = 0; index < node.size(); index++) {
+                collectEnums(node.get(index), path + "[" + index + "]", enums);
+            }
+        }
     }
 
     private static Path previousVersion(Path next, List<Path> candidates) {

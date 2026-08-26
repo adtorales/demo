@@ -1,0 +1,30 @@
+meta {
+  name: 01 - Create rogue consumer policy
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{consumerBaseUrl}}/policydefinitions
+  body: json
+  auth: apikey
+}
+
+auth:apikey {
+  key: X-Api-Key
+  value: {{consumerApiKey}}
+  placement: header
+}
+
+body:json {
+  {
+    "@context": { "@vocab": "https://w3id.org/edc/v0.0.1/ns/", "odrl": "http://www.w3.org/ns/odrl/2/" },
+    "@id": "{{roguePolicyId}}",
+    "@type": "PolicyDefinition",
+    "policy": {
+      "@id": "{{roguePolicyId}}-policy",
+      "@type": "odrl:Set",
+      "permission": [{ "action": "use", "constraint": [{ "leftOperand": "FrameworkAgreement", "operator": "eq", "rightOperand": "CX-2026" }] }]
+    }
+  }
+}

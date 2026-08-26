@@ -1,0 +1,21 @@
+meta {
+  name: 01 - List provider policies
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{providerBaseUrl}}/policydefinitions/request
+  body: json
+  auth: apikey
+}
+
+auth:apikey {
+  key: X-Api-Key
+  value: {{providerApiKey}}
+  placement: header
+}
+
+body:json {
+  { "@context": { "@vocab": "https://w3id.org/edc/v0.0.1/ns/" }, "@type": "QuerySpec", "offset": 0, "limit": 50 }
+}

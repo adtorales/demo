@@ -1,0 +1,3 @@
+# Pass this file as an additional -f argument to the umbrella Helm upgrade.
+dataconsumerTwo:
+  enabled: true
