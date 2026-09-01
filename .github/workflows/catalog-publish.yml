@@ -18,7 +18,13 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
+      # Full history is required: the validator resolves its diff range with
+      # `git rev-parse HEAD~1` on a push. On a shallow clone that fails, the range
+      # is empty, and the legacy-deferral rule for an approved major schema change
+      # never activates - which would fail the S5 publish.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
