@@ -1,7 +1,0 @@
-{
-  "groupId": "mb",
-  "resourceId": "company-policy",
-  "versionId": "2.0",
-  "format": "JsonSchema/2020-12",
-  "schema": "{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"$id\": \"urn:tap74:schema:mb:company-policy:2.0\",\n  \"title\": \"Company policy content constraints\",\n  \"type\": \"object\",\n  \"allOf\": [\n    {\n      \"properties\": {\n        \"permission\": {\n          \"items\": {\n            \"properties\": {\n              \"constraint\": {\n                \"not\": {\n                  \"contains\": {\n                    \"type\": \"object\",\n                    \"required\": [\"leftOperand\"],\n                    \"properties\": {\"leftOperand\": {\"const\": \"BusinessPartnerNumber\"}}\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    {\n      \"properties\": {\n        \"permission\": {\n          \"items\": {\n            \"properties\": {\n              \"constraint\": {\n                \"not\": {\n                  \"contains\": {\n                    \"type\": \"object\",\n                    \"required\": [\"leftOperand\", \"rightOperand\"],\n                    \"properties\": {\n                      \"leftOperand\": {\"const\": \"UsagePurpose\"},\n                      \"rightOperand\": {\"not\": {\"enum\": [\"analysis\"]}}\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ]\n}"
-}
