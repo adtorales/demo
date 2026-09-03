@@ -1,0 +1,39 @@
+[0;32mINFO 2026-08-26T08:50:56.321272426 Booting EDC runtime[0m
+[0;32mINFO 2026-08-26T08:50:57.024015623 HTTPS enforcement it not enabled, please enable it in a production environment[0m
+[0;33mWARNING 2026-08-26T08:50:57.715146105 Config value: no setting found for 'edc.hostname', falling back to default value 'localhost'[0m
+[0;33mWARNING 2026-08-26T08:50:58.43214835 Using the InMemoryVault is not suitable for production scenarios and should be replaced with an actual Vault![0m
+[0;32mINFO 2026-08-26T08:51:00.122245077 Pulling OCI artifact: ghcr.io/adtorales/xregistry-policies:current[0m
+[0;32mINFO 2026-08-26T08:51:02.735062888 Downloading OCI layer to /tmp/fleet-oci-registry-xregistry-policies-9355529201053309095/build/out/xregistry-policies-current.tar.gz[0m
+[0;32mINFO 2026-08-26T08:51:03.827561397 OCI pull completed for ghcr.io/adtorales/xregistry-policies:current[0m
+[0;32mINFO 2026-08-26T08:51:03.848343157 Pulling OCI artifact: ghcr.io/adtorales/xregistry-dataspace-schemas:current[0m
+[0;32mINFO 2026-08-26T08:51:05.131583635 Downloading OCI layer to /tmp/fleet-oci-registry-xregistry-dataspace-schemas-5653574279190659449/build/out/xregistry-dataspace-schemas-current.tar.gz[0m
+[0;32mINFO 2026-08-26T08:51:06.310564463 OCI pull completed for ghcr.io/adtorales/xregistry-dataspace-schemas:current[0m
+[0;32mINFO 2026-08-26T08:51:06.334032968 Initial OCI policy catalog reload completed. Loaded policy groups: 1, policies: 4.[0m
+[0;32mINFO 2026-08-26T08:51:06.338814809 Pulling OCI artifact: ghcr.io/adtorales/xregistry-policies:current[0m
+[0;32mINFO 2026-08-26T08:51:07.892490956 Downloading OCI layer to /tmp/fleet-oci-registry-xregistry-policies-11217527570636430896/build/out/xregistry-policies-current.tar.gz[0m
+[0;32mINFO 2026-08-26T08:51:09.128734141 OCI pull completed for ghcr.io/adtorales/xregistry-policies:current[0m
+[0;32mINFO 2026-08-26T08:51:09.220045752 Pulling OCI artifact: ghcr.io/adtorales/xregistry-dataspace-schemas:current[0m
+[0;32mINFO 2026-08-26T08:51:11.065800059 Downloading OCI layer to /tmp/fleet-oci-registry-xregistry-dataspace-schemas-2706982596984894584/build/out/xregistry-dataspace-schemas-current.tar.gz[0m
+[0;32mINFO 2026-08-26T08:51:13.480569203 OCI pull completed for ghcr.io/adtorales/xregistry-dataspace-schemas:current[0m
+[0;32mINFO 2026-08-26T08:51:13.485648963 Initial OCI schema catalog reload completed. Loaded schema groups: 2, schemas: 2.[0m
+Aug 26, 2026 8:51:16 AM org.glassfish.jersey.internal.Errors logErrors
+WARNING: The following warnings have been detected: WARNING: The (sub)resource method getVersion in org.eclipse.edc.connector.api.management.version.v1.VersionApiController contains empty path annotation.
+
+[0;32mINFO 2026-08-26T08:51:16.641576707 Started OCI registry polling every 60 second(s) for images: ghcr.io/adtorales/xregistry-policies:current, ghcr.io/adtorales/xregistry-dataspace-schemas:current[0m
+[0;32mINFO 2026-08-26T08:51:16.642135483 16 service extensions started[0m
+[0;32mINFO 2026-08-26T08:51:16.643873228 Runtime 882e7b16-ca5b-4e27-9e8c-4b9f3e0fd3f7 ready[0m
+[0;32mINFO 2026-08-26T08:52:18.575980743 OCI manifest digest changed for at least one configured image. Reloading catalogs.[0m
+[0;32mINFO 2026-08-26T08:52:18.578584961 Pulling OCI artifact: ghcr.io/adtorales/xregistry-policies:current[0m
+[0;32mINFO 2026-08-26T08:52:19.790554382 Downloading OCI layer to /tmp/fleet-oci-registry-xregistry-policies-13600924849909586790/build/out/xregistry-policies-current.tar.gz[0m
+[0;32mINFO 2026-08-26T08:52:20.790014317 OCI pull completed for ghcr.io/adtorales/xregistry-policies:current[0m
+[0;32mINFO 2026-08-26T08:52:20.823311347 Pulling OCI artifact: ghcr.io/adtorales/xregistry-dataspace-schemas:current[0m
+[0;32mINFO 2026-08-26T08:52:21.894975654 Downloading OCI layer to /tmp/fleet-oci-registry-xregistry-dataspace-schemas-12029559286324578945/build/out/xregistry-dataspace-schemas-current.tar.gz[0m
+[0;32mINFO 2026-08-26T08:52:22.870714051 OCI pull completed for ghcr.io/adtorales/xregistry-dataspace-schemas:current[0m
+[0;32mINFO 2026-08-26T08:52:22.873228868 OCI policy catalog reload completed. Loaded policy groups: 1, policies: 4.[0m
+[0;32mINFO 2026-08-26T08:52:22.875055832 Pulling OCI artifact: ghcr.io/adtorales/xregistry-policies:current[0m
+[0;32mINFO 2026-08-26T08:52:23.860424388 Downloading OCI layer to /tmp/fleet-oci-registry-xregistry-policies-5864843785940214956/build/out/xregistry-policies-current.tar.gz[0m
+[0;32mINFO 2026-08-26T08:52:24.726902679 OCI pull completed for ghcr.io/adtorales/xregistry-policies:current[0m
+[0;32mINFO 2026-08-26T08:52:24.730356988 Pulling OCI artifact: ghcr.io/adtorales/xregistry-dataspace-schemas:current[0m
+[0;32mINFO 2026-08-26T08:52:25.688576205 Downloading OCI layer to /tmp/fleet-oci-registry-xregistry-dataspace-schemas-17374754060328871212/build/out/xregistry-dataspace-schemas-current.tar.gz[0m
+[0;32mINFO 2026-08-26T08:52:26.857029995 OCI pull completed for ghcr.io/adtorales/xregistry-dataspace-schemas:current[0m
+[0;32mINFO 2026-08-26T08:52:26.861341248 OCI schema catalog reload completed. Loaded schema groups: 2, schemas: 2.[0m
