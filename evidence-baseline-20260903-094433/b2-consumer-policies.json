@@ -1,0 +1,126 @@
+[
+    {
+        "@id":  "cx/pcf-use/1.0",
+        "@type":  "PolicyDefinition",
+        "createdAt":  1788421359913,
+        "policy":  {
+                       "@id":  "3fb0909e-ae6d-4440-9c84-837d1945482e",
+                       "@type":  "odrl:Set",
+                       "odrl:permission":  [
+
+                                           ],
+                       "odrl:prohibition":  [
+
+                                            ],
+                       "odrl:obligation":  [
+
+                                           ]
+                   },
+        "privateProperties":  {
+                                  "xregistry:contentHash":  "5fffb77812ebc200cf62b1ca5436569e5b23a8e0b8de5b63471d86615e44139c",
+                                  "xregistry:managed":  true
+                              },
+        "@context":  [
+                         "https://w3id.org/catenax/2025/9/policy/context.jsonld",
+                         {
+                             "tx-auth":  "https://w3id.org/tractusx/auth/",
+                             "@vocab":  "https://w3id.org/edc/v0.0.1/ns/",
+                             "edc":  "https://w3id.org/edc/v0.0.1/ns/",
+                             "odrl":  "http://www.w3.org/ns/odrl/2/"
+                         }
+                     ]
+    },
+    {
+        "@id":  "cx/membership-access/1.0",
+        "@type":  "PolicyDefinition",
+        "createdAt":  1788421360124,
+        "policy":  {
+                       "@id":  "4627ab34-0f0b-4316-95bf-831fad90886c",
+                       "@type":  "odrl:Set",
+                       "odrl:permission":  [
+
+                                           ],
+                       "odrl:prohibition":  [
+
+                                            ],
+                       "odrl:obligation":  [
+
+                                           ]
+                   },
+        "privateProperties":  {
+                                  "xregistry:contentHash":  "74ba7e24fec2d021159ccd2f3863dbf05991e6ac09151553bcd7aeeca99d52c0",
+                                  "xregistry:managed":  true
+                              },
+        "@context":  [
+                         "https://w3id.org/catenax/2025/9/policy/context.jsonld",
+                         {
+                             "tx-auth":  "https://w3id.org/tractusx/auth/",
+                             "@vocab":  "https://w3id.org/edc/v0.0.1/ns/",
+                             "edc":  "https://w3id.org/edc/v0.0.1/ns/",
+                             "odrl":  "http://www.w3.org/ns/odrl/2/"
+                         }
+                     ]
+    },
+    {
+        "@id":  "cx/usage-framework/1.0",
+        "@type":  "PolicyDefinition",
+        "createdAt":  1788421360220,
+        "policy":  {
+                       "@id":  "ee880190-136c-4446-86d8-cab5ab893cd3",
+                       "@type":  "odrl:Set",
+                       "odrl:permission":  [
+
+                                           ],
+                       "odrl:prohibition":  [
+
+                                            ],
+                       "odrl:obligation":  [
+
+                                           ]
+                   },
+        "privateProperties":  {
+                                  "xregistry:contentHash":  "fb7250e3fd085233e1a628beb42561546eab6901d5a1ffae9231a134bb794f19",
+                                  "xregistry:managed":  true
+                              },
+        "@context":  [
+                         "https://w3id.org/catenax/2025/9/policy/context.jsonld",
+                         {
+                             "tx-auth":  "https://w3id.org/tractusx/auth/",
+                             "@vocab":  "https://w3id.org/edc/v0.0.1/ns/",
+                             "edc":  "https://w3id.org/edc/v0.0.1/ns/",
+                             "odrl":  "http://www.w3.org/ns/odrl/2/"
+                         }
+                     ]
+    },
+    {
+        "@id":  "cx/bpn-access/1.0",
+        "@type":  "PolicyDefinition",
+        "createdAt":  1788421360316,
+        "policy":  {
+                       "@id":  "f92b04f6-eba1-4b95-bf6d-d2ca0c7d0135",
+                       "@type":  "odrl:Set",
+                       "odrl:permission":  [
+
+                                           ],
+                       "odrl:prohibition":  [
+
+                                            ],
+                       "odrl:obligation":  [
+
+                                           ]
+                   },
+        "privateProperties":  {
+                                  "xregistry:contentHash":  "e3bcc1dad2ed059754e9bf63cdf47e7dc5b4b2d03c69bd5da0181dfde51c0fca",
+                                  "xregistry:managed":  true
+                              },
+        "@context":  [
+                         "https://w3id.org/catenax/2025/9/policy/context.jsonld",
+                         {
+                             "tx-auth":  "https://w3id.org/tractusx/auth/",
+                             "@vocab":  "https://w3id.org/edc/v0.0.1/ns/",
+                             "edc":  "https://w3id.org/edc/v0.0.1/ns/",
+                             "odrl":  "http://www.w3.org/ns/odrl/2/"
+                         }
+                     ]
+    }
+]

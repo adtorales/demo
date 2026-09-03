@@ -1,0 +1,15 @@
+NAME                                                              READY   STATUS    RESTARTS        AGE    IP            NODE       NOMINATED NODE   READINESS GATES
+bdrs-server-5594664765-8qhzs                                      1/1     Running   0               4h2m   10.244.0.8    minikube   <none>           <none>
+ssi-dim-wallet-stub-7857479644-lhp6l                              1/1     Running   2 (4h ago)      4h2m   10.244.0.10   minikube   <none>           <none>
+tap74-registry-fd9ddd555-2t2dk                                    1/1     Running   0               4h2m   10.244.0.6    minikube   <none>           <none>
+umbrella-dataconsumer-1-db-0                                      1/1     Running   0               4h2m   10.244.0.19   minikube   <none>           <none>
+umbrella-dataconsumer-1-edc-controlplane-5978f74d76-wcxf6         1/1     Running   1 (3h59m ago)   4h2m   10.244.0.11   minikube   <none>           <none>
+umbrella-dataconsumer-1-edc-dataplane-57856856f9-pll2x            1/1     Running   1 (3h59m ago)   4h2m   10.244.0.15   minikube   <none>           <none>
+umbrella-dataprovider-db-0                                        1/1     Running   0               4h2m   10.244.0.17   minikube   <none>           <none>
+umbrella-dataprovider-edc-controlplane-6b6c6687f8-s94t8           1/1     Running   2 (3h59m ago)   4h2m   10.244.0.7    minikube   <none>           <none>
+umbrella-dataprovider-edc-dataplane-66899f4fd4-f9mrt              1/1     Running   1 (3h59m ago)   4h2m   10.244.0.9    minikube   <none>           <none>
+umbrella-edc-dataconsumer-1-vault-0                               1/1     Running   0               4h2m   10.244.0.18   minikube   <none>           <none>
+umbrella-edc-dataconsumer-1-vault-agent-injector-7bc696c45k6zrr   1/1     Running   0               4h2m   10.244.0.13   minikube   <none>           <none>
+umbrella-edc-dataprovider-vault-0                                 1/1     Running   0               4h2m   10.244.0.16   minikube   <none>           <none>
+umbrella-edc-dataprovider-vault-agent-injector-7cd6ddf94b-s7qcv   1/1     Running   0               4h2m   10.244.0.14   minikube   <none>           <none>
+wallet-postgres-0                                                 1/1     Running   0               4h2m   10.244.0.12   minikube   <none>           <none>

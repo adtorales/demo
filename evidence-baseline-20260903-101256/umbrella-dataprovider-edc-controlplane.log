@@ -1,0 +1,80 @@
+2026-09-03T07:42:29,364 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Booting EDC runtime
+2026-09-03T07:42:29,461 WARN  org.eclipse.edc.monitor.logger.Log4j2Monitor - A configuration value for 'edc.runtime.id' was found. Explicitly configuring this is not supported anymore and may get removed in the future. A random value will be assigned.
+2026-09-03T07:42:31,219 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - HTTPS enforcement it not enabled, please enable it in a production environment
+2026-09-03T07:42:32,061 WARN  org.eclipse.edc.monitor.logger.Log4j2Monitor - A service of the type okhttp3.OkHttpClient was already registered and has now been replaced with a OkHttpClient instance.
+2026-09-03T07:42:33,023 WARN  org.eclipse.edc.monitor.logger.Log4j2Monitor - No EncryptionService registered, a no-op implementation will be used
+2026-09-03T07:42:33,319 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - DIM URL configured, will use DIM STS client
+2026-09-03T07:42:35,063 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Registering catena-x default scopes {DSP:2025-1=[org.eclipse.tractusx.vc.type:MembershipCredential:read, org.eclipse.tractusx.vc.type:DataExchangeGovernanceCredential:read, org.eclipse.tractusx.vc.type:BpnCredential:read], DSP:v0.8=[org.eclipse.tractusx.vc.type:MembershipCredential:read]}
+2026-09-03T07:42:35,924 WARN  org.eclipse.edc.monitor.logger.Log4j2Monitor - No TokenDecorator was registered. The 'scope' field of outgoing protocol messages will be empty
+2026-09-03T07:42:36,516 WARN  org.eclipse.edc.monitor.logger.Log4j2Monitor - [Delegated API Authentication] No audience configured for delegated authentication, defaulting to the participantId
+2026-09-03T07:42:36,965 WARN  org.eclipse.edc.monitor.logger.Log4j2Monitor - Datasource configuration value 'edc.datasource.default.url' not found in vault, will fall back to Config. Please consider putting datasource configuration into the vault.
+2026-09-03T07:42:37,015 WARN  org.eclipse.edc.monitor.logger.Log4j2Monitor - Datasource configuration value 'edc.datasource.default.user' not found in vault, will fall back to Config. Please consider putting datasource configuration into the vault.
+2026-09-03T07:42:37,018 WARN  org.eclipse.edc.monitor.logger.Log4j2Monitor - Datasource configuration value 'edc.datasource.default.password' not found in vault, will fall back to Config. Please consider putting datasource configuration into the vault.
+Sep 03, 2026 7:42:43 AM org.glassfish.jersey.internal.Errors logErrors
+WARNING: The following warnings have been detected: WARNING: The (sub)resource method getVersion in org.eclipse.edc.connector.api.management.version.v1.VersionApiController contains empty path annotation.
+
+2026-09-03T07:42:46,016 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Did Document Service Client not available or not enabled, skipping self-registration
+2026-09-03T07:42:46,059 WARN  org.eclipse.edc.monitor.logger.Log4j2Monitor - [ExecutionManager] Execution of crawlers is globally disabled.
+2026-09-03T07:42:46,122 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - 178 service extensions started
+2026-09-03T07:42:46,161 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Runtime umbrella-dataprovider-edc-controlplane ready
+2026-09-03T07:42:52,023 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=4, updated=0, deleted=0, retained=0, unchanged=0, invalid=0, failed=0
+2026-09-03T07:43:20,723 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:43:50,721 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:44:20,726 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:44:50,728 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:45:20,718 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:45:50,722 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:46:20,715 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:46:50,636 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:47:20,635 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:47:50,635 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:48:20,638 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:48:50,638 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:49:20,635 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:49:50,636 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:50:20,821 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:50:50,720 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:51:20,717 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:51:50,717 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:52:20,718 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:52:50,647 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:53:20,645 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:53:50,642 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:54:20,717 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:54:50,716 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:55:20,719 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:55:50,722 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:56:20,642 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:56:50,717 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:57:20,647 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:57:50,720 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:58:20,815 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:58:50,640 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:59:20,645 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T07:59:50,645 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:00:20,659 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:00:50,644 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:01:20,723 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:01:50,639 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:02:20,642 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:02:50,640 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:03:20,642 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:03:50,641 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:04:20,717 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:04:50,642 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:05:20,725 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:05:50,636 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:06:20,715 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:06:50,715 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:07:20,649 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:07:50,715 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:08:20,643 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:08:50,640 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:09:20,641 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:09:50,717 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:10:20,642 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:10:50,643 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:11:20,715 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:11:50,646 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:12:20,716 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0
+2026-09-03T08:12:50,637 INFO  org.eclipse.edc.monitor.logger.Log4j2Monitor - Policy reconciliation completed: created=0, updated=0, deleted=0, retained=0, unchanged=4, invalid=0, failed=0

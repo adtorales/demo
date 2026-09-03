@@ -1,0 +1,24 @@
+{
+    "@id":  "tap74-asset-001",
+    "@type":  "Asset",
+    "properties":  {
+                       "name":  "TAP 7.4 Demo Asset",
+                       "description":  "Asset used by the GitOps Policy Flow demonstrator",
+                       "id":  "tap74-asset-001",
+                       "contenttype":  "application/json"
+                   },
+    "dataAddress":  {
+                        "@type":  "DataAddress",
+                        "type":  "HttpData",
+                        "baseUrl":  "http://dataprovider-submodelserver.tx.test/api/shell-descriptors"
+                    },
+    "@context":  [
+                     "https://w3id.org/catenax/2025/9/policy/context.jsonld",
+                     {
+                         "tx-auth":  "https://w3id.org/tractusx/auth/",
+                         "@vocab":  "https://w3id.org/edc/v0.0.1/ns/",
+                         "edc":  "https://w3id.org/edc/v0.0.1/ns/",
+                         "odrl":  "http://www.w3.org/ns/odrl/2/"
+                     }
+                 ]
+}
