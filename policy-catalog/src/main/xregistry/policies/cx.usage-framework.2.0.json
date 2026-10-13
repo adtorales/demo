@@ -1,0 +1,20 @@
+{
+  "groupId": "cx",
+  "resourceId": "usage-framework",
+  "versionId": "2.0",
+  "accessPolicy": false,
+  "controlPolicy": true,
+  "policyDefinitionId": "cx/usage-framework/2.0",
+  "policyDefinition": {
+    "@context": { "odrl": "http://www.w3.org/ns/odrl/2/" },
+    "@id": "cx/usage-framework/2.0",
+    "@type": "odrl:Set",
+    "permission": [{
+      "action": "use",
+      "constraint": [
+        { "leftOperand": "FrameworkAgreement", "operator": "eq", "rightOperand": "CX-2026" },
+        { "leftOperand": "UsagePurpose", "operator": "eq", "rightOperand": "compliance" }
+      ]
+    }]
+  }
+}
